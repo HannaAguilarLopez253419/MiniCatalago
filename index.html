@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MiniCatálogo</title>
+
+    <!-- Fuentes de Google: Bricolage Grotesque (títulos) y DM Sans (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Rutas relativas (sin "/" al inicio) para que funcione al abrir el archivo
+         y para que coincida con la estructura css/ y js/ del proyecto -->
+    <link rel="stylesheet" href="/style/general.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">M</span>
+                <span>MiniCatálogo</span>
+            </a>
+
+            <!-- Botón hamburguesa: solo se ve en celular -->
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Abrir menú" aria-expanded="false"
+                    aria-controls="navMenu">☰</button>
+
+            <div class="nav-menu" id="navMenu">
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="#planes">Planes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="carrito.html" class="cart-button">
+                        <span aria-hidden="true">🛒</span>
+                        <span class="cart-text">Carrito</span>
+                    </a>
+
+                    <a href="login.html" class="admin-button">Administrar</a>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">DESCUBRE ALGO NUEVO</span>
+
+                <h1>
+                    Todo lo que buscas,
+                    <span>en un solo lugar.</span>
+                </h1>
+
+                <p>
+                    Explora productos y negocios, descubre nuevas opciones
+                    y encuentra lo que necesitas de una manera sencilla.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="catalogo.html" class="btn-primary">
+                        Explorar catálogo
+                        <span>→</span>
+                    </a>
+
+                    <a href="#categorias" class="btn-secondary">Ver categorías</a>
+                </div>
+
+                <div class="hero-note">
+                    <span class="note-dot"></span>
+                    Descubre negocios y productos cerca de ti
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="hero-circle"></div>
+
+                <div class="hero-image">
+                    <!-- Cambia hero.svg por tu foto: img/hero.jpg -->
+                    <img src="/img/inicio.jpg" alt="Productos de ejemplo de un catálogo">
+                </div>
+
+                <div class="floating-tag tag-one"> Nuevos negocios</div>
+                <div class="floating-tag tag-two"> Encuentra lo que buscas</div>
+
+            </div>
+
+        </section>
+
+        <section class="business-banner">
+
+            <div class="business-icon" aria-hidden="true">+</div>
+
+            <div class="business-content">
+                <span class="business-label">¿TIENES UN NEGOCIO?</span>
+                <h2>Forma parte de MiniCatálogo.</h2>
+                <p>
+                    Crea tu catálogo digital, muestra tus productos
+                    y conecta con nuevos clientes.
+                </p>
+            </div>
+
+            <div class="business-actions">
+                <a href="login.html" class="btn-primary">
+                    Suscribe tu negocio
+                    <span>→</span>
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CATEGORÍAS
+        ========================== -->
+        <section class="categories section-container" id="categorias">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-overline">EXPLORA</span>
+                    <h2>Categorías</h2>
+                </div>
+
+                <a href="catalogo.html" class="view-link">
+                    Ver catálogo
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="catalogo.html?categoria=moda" class="category-card">
+                    <div class="category-icon" aria-hidden="true">👕</div>
+                    <span>Moda</span>
+                    <small>Ropa y accesorios</small>
+                </a>
+
+                <a href="catalogo.html?categoria=tecnologia" class="category-card">
+                    <div class="category-icon" aria-hidden="true">💻</div>
+                    <span>Tecnología</span>
+                    <small>Dispositivos y accesorios</small>
+                </a>
+
+                <a href="catalogo.html?categoria=hogar" class="category-card">
+                    <div class="category-icon" aria-hidden="true">🏠</div>
+                    <span>Hogar</span>
+                    <small>Productos para tu espacio</small>
+                </a>
+
+                <a href="catalogo.html?categoria=belleza" class="category-card">
+                    <div class="category-icon" aria-hidden="true">✨</div>
+                    <span>Belleza</span>
+                    <small>Cuidado personal</small>
+                </a>
+
+                <a href="catalogo.html?categoria=alimentos" class="category-card">
+                    <div class="category-icon" aria-hidden="true">☕</div>
+                    <span>Alimentos</span>
+                    <small>Comida y bebidas</small>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NEGOCIOS DESTACADOS
+        ========================== -->
+        <section class="featured section-container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-overline">CONOCE</span>
+                    <h2>Negocios destacados</h2>
+                    <p>
+                        Descubre algunos de los negocios que forman parte
+                        de nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+
+            <div class="business-grid">
+
+                <!-- NEGOCIO 1 -->
+                <article class="business-card">
+                    <div class="business-image">
+                        <img src="/img/restaurante.jpg" alt="Negocio destacado de alimentos">
+                        <span class="business-badge">Destacado</span>
+                    </div>
+                    <div class="business-info">
+                        <span class="business-category">Alimentos</span>
+                        <h3>Restaurants Bugambilias</h3>
+                        <p>Productos y opciones para disfrutar.</p>
+                        <span class="business-location">Ciudad de Mexico</span>
+                    </div>
+                </article>
+
+                <!-- NEGOCIO 2 -->
+                <article class="business-card">
+                    <div class="business-image">
+                        <img src="/img/ropa.jpg" alt="Negocio destacado de moda">
+                    </div>
+                    <div class="business-info">
+                        <span class="business-category">Moda</span>
+                        <h3>Estilo &amp; Moda</h3>
+                        <p>Encuentra productos para tu estilo.</p>
+                        <span class="business-location">Ciudad de Mexico</span>
+                    </div>
+                </article>
+
+                <!-- NEGOCIO 3 -->
+                <article class="business-card">
+                    <div class="business-image">
+                        <img src="/img/tech.jpg" alt="Negocio destacado de tecnología">
+                    </div>
+                    <div class="business-info">
+                        <span class="business-category">Tecnología</span>
+                        <h3>Tech Store</h3>
+                        <p>Tecnología y accesorios para todos.</p>
+                        <span class="business-location">Ciudad de Mexico</span>
+                    </div>
+                </article>
+
+                <!-- NEGOCIO 4 -->
+                <article class="business-card">
+                    <div class="business-image">
+                        <img src="/img/belleza.jpg" alt="Negocio destacado de belleza">
+                    </div>
+                    <div class="business-info">
+                        <span class="business-category">Belleza</span>
+                        <h3>Beauty Shop</h3>
+                        <p>Productos para cuidado personal.</p>
+                        <span class="business-location"> Ciudad de Mexico</span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CARRUSEL DE IMÁGENES
+        ========================== -->
+        <section class="carousel-section section-container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-overline">MINI CATÁLOGO</span>
+                    <h2>Compra de forma sencilla</h2>
+                </div>
+
+                <div class="carousel-controls">
+                    <button id="prevSlide" class="carousel-button" aria-label="Anterior">←</button>
+                    <button id="nextSlide" class="carousel-button" aria-label="Siguiente">→</button>
+                </div>
+            </div>
+
+
+            <div class="carousel">
+
+                <div class="carousel-track" id="carouselTrack">
+
+                    <!-- Cada slide es una imagen con un texto encima.
+                         Para usar tus fotos: cambia src="img/slide1.svg" por src="img/tu-foto.jpg"
+                         (tamaño recomendado: 1200 x 460 px) -->
+
+                    <!-- SLIDE 1 -->
+                    <figure class="carousel-slide">
+                        <img src="/img/Descubre.jpg" alt="Explorando productos y negocios">
+                        <figcaption class="slide-caption">
+                            <span>PASO 01</span>
+                            <h3>Descubre</h3>
+                            <p>
+                                Explora diferentes negocios, categorías y
+                                productos desde un solo lugar.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- SLIDE 2 -->
+                    <figure class="carousel-slide">
+                        <img src="/img/Elige.jpg" alt="Agregando productos al carrito">
+                        <figcaption class="slide-caption">
+                            <span>PASO 02</span>
+                            <h3>Elige</h3>
+                            <p>
+                                Encuentra lo que buscas y agrega tus
+                                productos favoritos al carrito.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- SLIDE 3 -->
+                    <figure class="carousel-slide">
+                        <img src="/img/Redes.jpg" alt="Enviando el pedido por WhatsApp">
+                        <figcaption class="slide-caption">
+                            <span>PASO 03</span>
+                            <h3>Pide</h3>
+                            <p>
+                                Revisa tu pedido y ponte en contacto con
+                                el negocio de forma sencilla.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- SLIDE 4 -->
+                    <figure class="carousel-slide">
+                        <img src="/img/Apoya.jpg" alt="Apoyando a negocios locales">
+                        <figcaption class="slide-caption">
+                            <span>PASO 04</span>
+                            <h3>Apoya</h3>
+                            <p>
+                                Descubre nuevos negocios y apoya a
+                                emprendedores de tu comunidad.
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                </div>
+
+            </div>
+
+
+            <div class="carousel-dots" id="carouselDots">
+                <button class="carousel-dot active" data-slide="0" aria-label="Ir a la imagen 1"></button>
+                <button class="carousel-dot" data-slide="1" aria-label="Ir a la imagen 2"></button>
+                <button class="carousel-dot" data-slide="2" aria-label="Ir a la imagen 3"></button>
+                <button class="carousel-dot" data-slide="3" aria-label="Ir a la imagen 4"></button>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PLANES
+        ========================== -->
+        <section class="plans section-container" id="planes">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-overline">PLANES</span>
+                    <h2>Empieza gratis, crece cuando quieras</h2>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+
+                <article class="plan-card">
+                    <h3>Free</h3>
+                    <p class="plan-price">$0 <small>MXN/mes</small></p>
+                    <ul class="plan-list">
+                        <li>Hasta 10 productos</li>
+                        <li>Catálogo digital</li>
+                        <li>Categorías y búsqueda</li>
+                        <li>Pedidos por WhatsApp</li>
+                    </ul>
+                    <!-- Por ahora lleva al login; después puede apuntar a la página de planes -->
+                    <a href="login.html" class="btn-outline">Empezar gratis</a>
+                </article>
+
+                <article class="plan-card plan-premium">
+                    <span class="plan-badge">Recomendado</span>
+                    <h3>Premium</h3>
+                    <p class="plan-price">$79 <small>MXN/mes</small></p>
+                    <ul class="plan-list">
+                        <li>Productos ilimitados</li>
+                        <li>Logo de tu negocio</li>
+                        <li>Colores personalizados</li>
+                        <li>Promociones y estadísticas</li>
+                    </ul>
+                    <a href="login.html" class="btn-primary">Quiero Premium</a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACTO
+        ========================== -->
+        <section class="contact section-container" id="contacto">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-overline">CONTACTO</span>
+                    <h2>¿Tienes dudas? Escríbenos</h2>
+                </div>
+            </div>
+
+            <ul class="contact-grid">
+                <li class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">✉️</span>
+                    <div>
+                        <strong>Correo</strong>
+                        <p>contacto@minicatalogo.mx</p>
+                    </div>
+                </li>
+                <li class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">💬</span>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <p>+52 000 000 0000</p>
+                    </div>
+                </li>
+                <li class="contact-card">
+                    <span class="contact-icon" aria-hidden="true">📍</span>
+                    <div>
+                        <strong>Ubicación</strong>
+                        <p>Mexico</p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             CTA FINAL
+        ========================== -->
+        <section class="final-cta section-container">
+
+            <div>
+                <span class="section-overline">PARA EMPRENDEDORES</span>
+                <h2>¿Listo para mostrar tu negocio?</h2>
+                <p>
+                    Crea tu catálogo digital y comienza a formar
+                    parte de MiniCatálogo.
+                </p>
+            </div>
+
+            <a href="login.html" class="btn-primary">
+                Suscribe tu negocio
+                <span>→</span>
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-icon">M</span>
+                    <span>MiniCatálogo</span>
+                </a>
+                <p>Conectando personas con negocios.</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <!-- El año lo escribe JavaScript (ver js/inicio.js) -->
+            <span>© <span id="anio">2026</span> MiniCatálogo</span>
+            <span>Todos los derechos reservados.</span>
+        </div>
+
+    </footer>
+
+
+    <script src="/Js/inicio.js"></script>
+
+</body>
+</html>
