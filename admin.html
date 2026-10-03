@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniCatálogo | Administrador</title>
+    <link rel="stylesheet" href="style/admin.css">
+</head>
+<body>
+    <header>
+        <h1>MiniCatálogo</h1>
+        <div>
+            <span>Panel Administrador</span>
+            <button>Cerrar sesión</button>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Panel de administrador</h2>
+            <p>Bienvenido. Desde aquí puedes administrar los productos de tu catálogo.</p>
+        </section>
+
+        <section>
+            <article>
+                <h3>Plan actual</h3>
+                <p>FREE</p>
+                <span>$0 / mes</span>
+            </article>
+            <article>
+                <h3>Productos</h3>
+                <p>0 / 10</p>
+                <span>productos registrados</span>
+            </article>
+            <article>
+                <h3>Estado</h3>
+                <p>ACTIVO</p>
+                <span>Catálogo disponible</span>
+            </article>
+        </section>
+
+        <section>
+            <div>
+                <h2>Mis productos</h2>
+                <p>0 / 10 productos</p>
+                <button id="btnAgregarProducto">
+                    + Agregar producto
+                </button>
+            </div>
+            <div id="listaProductos">
+                <p> Todavía no tienes productos registrados</p>
+            </div>
+        </section>
+
+        <section id="formularioProducto" hidden>
+            <h2>Agregar producto</h2>
+            <form id="formProducto">
+                <div>
+                    <label for="nombre">Nombre del producto</label>
+                    <input type="text" id="nombre" placeholder="Ej. Café Americano">
+                </div>
+                <div>
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" placeholder="Ej. 45">
+                </div>
+
+                <div>
+                    <label for="categoria">Categoría</label>
+                    <input type="text" id="categoria" placeholder="Ej. Bebidas" >
+                </div>
+
+                <div>
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" placeholder="Describe el producto..."></textarea>
+                </div>
+
+                <div>
+                    <label for="imagen">Imagen</label>
+                    <input type="text" id="imagen" placeholder="Nombre o ruta de la imagen" >
+                </div>
+
+                <div>
+                    <button type="button" id="btnCancelar"> Cancelar </button>
+                    <button type="submit" id="btnGuardar"> Guardar producto </button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="Js/admin.js"></script>
+</body>
+</html>
