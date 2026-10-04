@@ -1,0 +1,40 @@
+/* planes.css – Página de planes y monetización */
+
+/* ----- Uso del plan ----- */
+.uso { max-width: 860px; margin: 0 auto 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.barra { flex: 1; min-width: 160px; height: 12px; background: var(--menta); border-radius: 99px; overflow: hidden; }
+.barra i { display: block; height: 100%; background: var(--verde); border-radius: 99px; transition: width .4s; }
+
+.exito { background: var(--menta); border-radius: 20px; padding: 16px; margin: 0 auto 24px; max-width: 860px; display: none; }
+.exito.visible { display: block; }
+
+/* ----- Tarjetas de plan ----- */
+.planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 860px; margin: 0 auto; }
+.plan { position: relative; }
+.plan.premium { background: var(--oscuro); color: #fff; border: 0; }
+.plan h2 { font-size: 1.4rem; }
+.plan .precio-plan { font-size: 2.6rem; font-weight: 700; letter-spacing: -.04em; margin: 8px 0 16px; }
+.plan .precio-plan small { font-size: 1rem; font-weight: 400; opacity: .7; }
+.plan ul { list-style: none; padding: 0; margin-bottom: 22px; display: grid; gap: 10px; }
+.plan li::before { content: "✓ "; color: var(--verde); font-weight: 700; }
+.plan.premium li::before { color: var(--naranja); }
+.plan .btn { width: 100%; }
+
+.etiqueta-actual {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: var(--menta);
+    color: var(--verde);
+    border-radius: 99px;
+    padding: 2px 12px;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+/* ----- Modal de confirmación ----- */
+.modal { position: fixed; inset: 0; background: rgba(16, 32, 29, .6); display: none; place-items: center; padding: 16px; z-index: 10; }
+.modal.abierto { display: grid; }
+.modal .card { max-width: 420px; width: 100%; }
+.modal .acciones { display: flex; gap: 10px; margin-top: 20px; }
+.modal .acciones .btn { flex: 1; }
