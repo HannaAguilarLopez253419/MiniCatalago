@@ -1,0 +1,61 @@
+/* Variables copiadas de style/general.css (rama feature/admin). Cuando general.css llegue a main,
+   puedes enlazarlo en el HTML y borrar este bloque :root. */
+:root{--primary:#0F766E;--primary-dark:#0B5A54;--primary-light:#7CCBBB;--primary-soft:#E6F4F1;--line:#D3E8E3;--accent:#FF7A59;--accent-dark:#F0613D;--dark:#10211F;--dark-glow:#1E5A53;--background:#F6F9F8;--surface:#FFFFFF;--text:#10211F;--muted:#56666A;--hero-1:#F4FAF8;--hero-2:#E1F2EE;--font-title:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--font-body:"DM Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:var(--font-body);font-size:16px;line-height:1.6;background:var(--background);color:var(--text)}
+h1,h2,h3{font-family:var(--font-title);line-height:1.15}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.nav{position:sticky;top:12px;z-index:20;display:flex;align-items:center;gap:16px;max-width:1180px;margin:12px auto 0;padding:10px 14px 10px 16px;background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:0 4px 12px rgba(16,33,31,.06)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-title);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.logo i{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--primary);color:#fff;font-style:normal}
+.nav ul{display:flex;gap:4px;margin:0 auto}
+.nav ul a{display:block;padding:8px 16px;border-radius:12px;font-weight:600}
+.nav ul a.activo{background:var(--primary-soft);color:var(--primary)}
+.btn-oscuro{margin-left:auto;padding:11px 20px;border-radius:14px;background:var(--dark);color:#fff;font-weight:700}
+.nav ul + .nav-der .btn-oscuro{margin-left:0}
+
+main{max-width:1180px;margin:0 auto;padding:0 16px 40px}
+
+
+.titulo{margin:36px 0 0}
+.titulo h1{font-size:clamp(32px,4.5vw,48px);font-weight:800;letter-spacing:-.04em}
+.titulo p{color:var(--muted);font-size:18px}
+.herramientas{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:20px 0 8px}
+.buscador{flex:1 1 260px;display:flex;align-items:center;gap:10px;padding:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:99px}
+.buscador input{flex:1;border:0;background:transparent;padding:13px 0;outline:0;font:inherit;color:inherit}
+.buscador:focus-within{outline:3px solid var(--accent);outline-offset:3px}
+#chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0;scrollbar-width:none}
+.chip{flex:none;padding:9px 18px;border:1px solid var(--line);border-radius:99px;background:var(--surface);color:var(--text);font-size:inherit;font-weight:600}
+.chip:hover{border-color:var(--primary)}
+.chip.activo{background:var(--accent);border-color:var(--accent);color:#fff}
+#contador{margin-bottom:14px;color:var(--muted);font-size:14px}
+
+/* Tarjeta de producto: mismas reglas que #listaProductos en style/admin.css */
+#grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tarjeta{overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 4px 12px rgba(16,33,31,.06);transition:transform .2s}
+.tarjeta:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(15,118,110,.18)}
+.tarjeta img{width:100%;height:180px;object-fit:cover}
+.sin-foto{display:grid;place-items:center;height:180px;background:var(--primary-soft);color:var(--primary);font:800 56px var(--font-title)}
+.info{padding:18px}
+.categoria{display:inline-block;background:#FFE9E2;color:var(--accent-dark);font-size:12px;font-weight:bold;padding:2px 10px;border-radius:20px}
+.categoria:empty{display:none}
+.tarjeta h3{margin:8px 0 4px}
+.tarjeta p{margin-bottom:6px;color:var(--muted)}
+.tarjeta .precio{color:var(--primary);font-size:20px;font-weight:bold}
+.btnWhatsapp{display:block;margin-top:12px;padding:10px;border-radius:8px;background:#25D366;color:#fff;text-align:center;font-weight:bold}
+.btnWhatsapp:hover{opacity:.85}
+.vacio{grid-column:1/-1;display:grid;gap:4px;padding:48px 16px;text-align:center;color:var(--muted)}
+.vacio b{color:var(--text);font-size:18px}
+
+.pie-pagina{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;max-width:1180px;margin:0 auto;padding:28px 36px;border-radius:32px 32px 0 0;background:var(--dark);color:#c4d8d2}
+.pie-pagina b{color:#fff}
+
+@media(max-width:800px){#grid{grid-template-columns:1fr}}
+@media(max-width:760px){.nav ul{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

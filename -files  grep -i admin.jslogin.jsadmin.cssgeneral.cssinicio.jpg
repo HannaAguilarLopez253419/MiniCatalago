@@ -1,0 +1,14 @@
+*   [33m3d715ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mintegration[m[33m)[m Une catalogo
+[31m|[m[32m\[m  
+[31m|[m * [33m901c704[m[33m ([m[1;31morigin/catalogo[m[33m)[m Catálogo base
+* [32m|[m   [33maeb6c29[m integracion rama inicio
+[33m|[m[34m\[m [32m\[m  
+[33m|[m * [32m|[m [33mf5bdb69[m[33m ([m[1;31morigin/feature/admin[m[33m)[m Clear all styles from style.css
+[33m|[m * [32m|[m [33m45bfd6d[m Actualiza panel de administración y agrega login
+[33m|[m * [32m|[m [33ma936bd1[m Agrego archivos de hanna-inicio
+[33m|[m * [32m|[m [33m5af21a4[m Admin y login con estilos
+[33m|[m * [32m|[m [33me3990e6[m Agrego funcionalidades al panel de administrador
+[33m|[m * [32m|[m [33m5eebe4a[m Agrego panel de administrador
+[33m|[m [32m|[m[32m/[m  
+* [32m/[m [33mbfa7267[m[33m ([m[1;31morigin/hanna-inicio[m[33m)[m Diseño de inicio y navegación
+[32m|[m[32m/[m  
