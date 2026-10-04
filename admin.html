@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniCatálogo | Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/general.css">
+    <link rel="stylesheet" href="style/admin.css">
+</head>
+<body>
+    <header>
+        <h1><span class="logo-icon">M</span>MiniCatálogo</h1>
+        <div>
+            <span>Panel Administrador</span>
+            <button id="btnCerrarSesion">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="bienvenida">
+            <span class="etiqueta">PANEL DE ADMINISTRADOR</span>
+            <h2>¡Hola! Administra tu catálogo</h2>
+            <p>Sube tus productos con su imagen, precio y link de WhatsApp para recibir pedidos.</p>
+        </section>
+
+        <section class="resumen">
+            <article class="plan">
+                <h3> Plan actual</h3>
+                <p id="nombrePlan">FREE</p>
+                <span id="precioPlan">$0 / mes</span>
+                <button id="btnPremium"> Mejorar a Premium</button>
+            </article>
+            <article class="productos">
+                <h3> Productos</h3>
+                <p id="contadorProductos">0 / 10</p>
+                <div class="barra">
+                    <div id="barraProductos"></div>
+                </div>
+                <span>productos registrados</span>
+            </article>
+            <article class="estado">
+                <h3> Estado</h3>
+                <p>ACTIVO</p>
+                <span>Catálogo disponible</span>
+            </article>
+        </section>
+
+        <section class="caja">
+            <div class="encabezado">
+                <h2>Mis productos</h2>
+                <p id="contadorProductosCard">0 / 10 productos</p>
+                <button id="btnAgregarProducto">+ Agregar producto</button>
+            </div>
+            <div id="listaProductos">
+                <p>Todavía no tienes productos registrados</p>
+            </div>
+        </section>
+
+        <section id="formularioProducto" class="modal" hidden>
+            <div class="ventana">
+                <h2 id="tituloFormulario">Agregar producto</h2>
+                <form id="formProducto">
+                    <div>
+                        <label for="nombre">Nombre del producto</label>
+                        <input type="text" id="nombre" placeholder="Ej. Café Americano" required>
+                    </div>
+
+                    <div>
+                        <label for="precio">Precio</label>
+                        <input type="number" id="precio" placeholder="Ej. 45" required>
+                    </div>
+
+                    <div>
+                        <label for="imagen">Imagen (link o ruta)</label>
+                        <input type="text" id="imagen" placeholder="Ej. https://misitio.com/cafe.jpg" required>
+                    </div>
+
+                    <div>
+                        <label for="whatsapp">Link de WhatsApp para pedidos</label>
+                        <input type="url" id="whatsapp" placeholder="https://wa.me/5219610000000" required>
+                    </div>
+
+                    <div>
+                        <label for="categoria">Categoría</label>
+                        <input type="text" id="categoria" placeholder="Ej. Bebidas">
+                    </div>
+
+                    <div>
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" placeholder="Describe el producto..."></textarea>
+                    </div>
+
+                    <div>
+                        <button type="button" id="btnCancelar">Cancelar</button>
+                        <button type="submit" id="btnGuardar">Guardar producto</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="Js/admin.js"></script>
+</body>
+</html>

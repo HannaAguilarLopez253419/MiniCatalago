@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==========================================================
    inicio.css  -  Estilos solo de la página de inicio
    Los colores y fuentes vienen de general.css (variables).
@@ -906,3 +907,6 @@
     .hero-buttons { flex-direction: column; align-items: flex-start; }
     .business-image { height: 200px; }
 }
+=======
+
+>>>>>>> origin/feature/admin
