@@ -1,0 +1,88 @@
+/* base.css – Variables, reset y componentes compartidos */
+
+:root {
+    --verde: #0f766e;
+    --menta: #e6f4ef;
+    --naranja: #ff7a59;
+    --oscuro: #10201d;
+    --gris: #5b6b67;
+    --borde: #d5e6e0;
+    --blanco: #fff;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--oscuro);
+    background: #f7fbf9;
+    line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 16px 24px 64px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: 2px;
+}
+
+/* ----- Encabezado de página ----- */
+.hero-mini {
+    background: linear-gradient(135deg, var(--menta), #f1faf6);
+    border-radius: 40px;
+    padding: 40px;
+    margin-bottom: 28px;
+}
+.hero-mini h1 { font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -.04em; line-height: 1.1; }
+.hero-mini h1 span { color: var(--verde); }
+.hero-mini p { color: var(--gris); margin-top: 8px; }
+
+/* ----- Tarjeta ----- */
+.card {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 28px;
+    padding: 24px;
+}
+
+/* ----- Botones ----- */
+.btn {
+    display: inline-block;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 99px;
+    background: var(--naranja);
+    color: var(--oscuro);
+    transition: transform .15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.btn-oscuro { background: var(--oscuro); color: #fff; }
+.btn-linea { background: transparent; border: 2px solid var(--verde); color: var(--verde); }
+
+/* ----- Formularios y textos ----- */
+label { display: block; font-weight: 600; margin: 14px 0 6px; }
+
+input, textarea {
+    width: 100%;
+    font: inherit;
+    padding: 12px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    background: #fbfefd;
+}
+
+.aviso { margin-top: 12px; font-size: .9rem; color: var(--gris); }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}

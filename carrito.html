@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tu pedido · MiniCatálogo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="style/carrito.css">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header class="nav">
+        <a class="logo" href="index.html"><b>M</b> MiniCatálogo</a>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <div class="nav-der">
+            <a href="carrito.html" class="activo">🛒 Carrito<span class="badge" id="cartCount">0</span></a>
+            <a class="btn btn-oscuro" href="login.html">Administrar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-mini">
+            <h1>Revisa tu pedido y <span>envíalo por WhatsApp.</span></h1>
+            <p>Ajusta cantidades y mándalo directo al negocio.</p>
+        </section>
+
+        <div class="grid">
+            <!-- Productos del pedido -->
+            <section class="card" aria-label="Productos del pedido">
+                <div id="lista"></div>
+                <div class="vacio" id="vacio">
+                    <p>Tu pedido está vacío.</p>
+                    <a class="btn" href="catalogo.html">Ver catálogo</a>
+                </div>
+            </section>
+
+            <!-- Resumen y envío -->
+            <aside class="card resumen" id="resumen" hidden>
+                <h2>Resumen</h2>
+                <div class="fila"><span>Subtotal</span><span id="sub"></span></div>
+                <div class="fila total"><span>Total</span><span id="tot"></span></div>
+
+                <label for="nombre">Tu nombre</label>
+                <input id="nombre" autocomplete="name" placeholder="Ej. Ana López">
+
+                <label for="notas">Notas para el negocio (opcional)</label>
+                <textarea id="notas" rows="3" placeholder="Hora de entrega, indicaciones…"></textarea>
+
+                <button class="btn" id="btnEnviar">Enviar pedido por WhatsApp</button>
+                <p class="aviso">Se abrirá WhatsApp con tu pedido listo para enviar. El pago lo acuerdas con el negocio.</p>
+            </aside>
+        </div>
+
+        <!-- Productos que subió el administrador -->
+        <section class="disponibles" aria-label="Productos disponibles">
+            <h2>Productos disponibles</h2>
+            <div class="prods" id="productos"></div>
+            <p class="aviso aviso-mock" id="avisoMock" hidden>Estás viendo productos de ejemplo. Desaparecen cuando el administrador agregue los suyos.</p>
+            <p class="aviso" id="sinProductos" hidden>Aún no hay productos. Cuando el administrador los agregue, aparecerán aquí.</p>
+        </section>
+    </main>
+
+    <script src="Js/config.js"></script>
+    <script src="Js/utils.js"></script>
+    <script src="Js/carrito.js"></script>
+    <script src="Js/mock.js"></script>
+    <script src="Js/carrito-vista.js"></script>
+</body>
+</html>
