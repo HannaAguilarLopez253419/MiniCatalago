@@ -1,43 +1,48 @@
 const $ = s => document.querySelector(s);
-const moneda = n => new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(n);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const productos = obtenerProductos();
-let categoria = 'Todo', texto = '';
+let categoria = 'todo', texto = '';
 
-const precioFinal = p => (p.enOferta && p.precioOferta ? p.precioOferta : p.precio);
+// Quita acentos y pasa a minúsculas: "Café" -> "cafe"
+const limpiar = s => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
-// Link de WhatsApp del dueño, con el mensaje del producto ya escrito.
-// Si un producto trae su propio campo "whatsapp", se usa ese; si no, el del negocio.
+const claveCat = p => (p.categoria || '').trim().toLowerCase();
+
+// Usa el link de WhatsApp que el dueño escribió en el admin y le agrega el mensaje del producto.
 function linkWhatsApp(p) {
-  const numero = p.whatsapp || NEGOCIO.whatsapp;
-  const mensaje = `Hola, quiero pedir: ${p.nombre} (${moneda(precioFinal(p))})`;
-  return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+  const base = String(p.whatsapp || '');
+  if (!/^https?:\/\//.test(base)) return '#';
+  const mensaje = `Hola, quiero pedir: ${p.nombre} ($${p.precio})`;
+  return base + (base.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(mensaje);
 }
 
 function pintarChips() {
-  const cats = ['Todo', ...new Set(productos.map(p => p.categoria))];
-  if (productos.some(p => p.enOferta)) cats.push('Ofertas');
-  $('#chips').innerHTML = cats.map(c =>
-    `<button class="chip${c === categoria ? ' activo' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  const vistas = new Map();
+  productos.forEach(p => { const k = claveCat(p); if (k && !vistas.has(k)) vistas.set(k, p.categoria.trim()); });
+  const cats = [['todo', 'Todo'], ...vistas];
+  $('#chips').innerHTML = cats.map(([k, n]) =>
+    `<button class="chip${k === categoria ? ' activo' : ''}" data-cat="${esc(k)}">${esc(n)}</button>`).join('');
 }
 
 function filtrar() {
-  const t = texto.trim().toLowerCase();
+  const t = limpiar(texto).trim();
   return productos.filter(p =>
-    (categoria === 'Todo' || (categoria === 'Ofertas' ? p.enOferta : p.categoria === categoria)) &&
-    (!t || p.nombre.toLowerCase().includes(t)));
+    (categoria === 'todo' || claveCat(p) === categoria) &&
+    (!t || limpiar(`${p.nombre} ${p.descripcion || ''}`).includes(t)));
 }
 
+// Mismo diseño de tarjeta que el panel admin
 function tarjeta(p) {
   const foto = p.imagen ? `<img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
-    : `<span class="inicial" aria-hidden="true">${esc(p.nombre[0])}</span>`;
-  const precio = p.enOferta && p.precioOferta
-    ? `<s>${moneda(p.precio)}</s> <strong>${moneda(p.precioOferta)}</strong>` : `<strong>${moneda(p.precio)}</strong>`;
-  return `<article class="tarjeta"><div class="foto">${foto}${p.enOferta ? '<span class="etiqueta">Oferta</span>' : ''}</div>
-    <div class="info"><h3>${esc(p.nombre)}</h3>
-    <div class="pie"><span class="precio">${precio}</span>
-    <a class="pedir" href="${linkWhatsApp(p)}" target="_blank" rel="noopener">Pedir por WhatsApp</a></div></div></article>`;
+    : `<div class="sin-foto" aria-hidden="true">${esc((p.nombre || '?')[0])}</div>`;
+  return `<article class="tarjeta">${foto}<div class="info">
+    <span class="categoria">${esc(p.categoria || '')}</span>
+    <h3>${esc(p.nombre)}</h3>
+    <p class="precio">$${esc(p.precio)}</p>
+    <p>${esc(p.descripcion || '')}</p>
+    <a class="btnWhatsapp" href="${esc(linkWhatsApp(p))}" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div></article>`;
 }
 
 function pintarProductos() {
@@ -52,7 +57,6 @@ $('#chips').addEventListener('click', e => {
   categoria = b.dataset.cat; pintarChips(); pintarProductos();
 });
 $('#buscar').addEventListener('input', e => { texto = e.target.value; pintarProductos(); });
-$('#ver-ofertas').onclick = () => { categoria = 'Ofertas'; pintarChips(); pintarProductos(); $('#catalogo').scrollIntoView({ behavior: 'smooth' }); };
 
 $('#negocio').textContent = NEGOCIO.nombre;
 pintarChips(); pintarProductos();
