@@ -1,21 +1,21 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-}
-
 header {
-    background: #222;
+    background: var(--dark);
     color: white;
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header button {
+    background: transparent;
+    border: 1px solid var(--primary-light);
 }
 
 main {
@@ -43,13 +43,20 @@ article,
 .caja,
 #listaProductos > div,
 .ventana {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
     padding: 24px;
 }
 
+article h3 {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
 article p {
+    color: var(--primary);
     font-size: 25px;
     font-weight: bold;
 }
@@ -65,10 +72,12 @@ article p {
     width: 100%;
     height: 150px;
     object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 12px;
 }
 
 #listaProductos p {
+    color: var(--muted);
     margin-bottom: 6px;
 }
 
@@ -79,16 +88,20 @@ article p {
 button {
     padding: 10px 16px;
     border: none;
-    border-radius: 6px;
-    background: #222;
+    border-radius: 8px;
+    background: var(--primary);
     color: white;
-    cursor: pointer;
+}
+
+#btnAgregarProducto,
+.btnEliminar {
+    background: var(--accent);
 }
 
 .btnEditar,
 #btnCancelar {
-    background: #ddd;
-    color: #222;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
 }
 
 .modal {
@@ -101,6 +114,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .modal[hidden] {
@@ -130,11 +144,17 @@ form div:last-child {
     gap: 10px;
 }
 
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 input,
 textarea {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: inherit;
 }
 
 @media (max-width: 800px) {

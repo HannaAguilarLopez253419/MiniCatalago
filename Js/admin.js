@@ -57,6 +57,10 @@ function mostrarProductos() {
         listaProductos.appendChild(tarjeta);
     });
 
+    if (productos.length === 0) {
+        listaProductos.innerHTML = "<p>Todavía no tienes productos registrados</p>";
+    }
+
     document.getElementById("contadorProductos").textContent = productos.length + " / " + limite;
     document.getElementById("contadorProductosCard").textContent = productos.length + " / " + limite + " productos";
 }
@@ -90,4 +94,8 @@ formProducto.addEventListener("submit", function (event) {
 
     mostrarProductos();
     cerrarFormulario();
+});
+
+document.getElementById("btnCerrarSesion").addEventListener("click", function () {
+    window.location.href = "login.html";
 });
