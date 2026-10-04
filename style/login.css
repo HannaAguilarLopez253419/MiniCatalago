@@ -47,7 +47,8 @@ input {
     margin-bottom: 15px;
 }
 
-#mensajeLogin {
+#mensajeLogin,
+#mensajeRegistro {
     color: #c62828;
     margin-bottom: 10px;
 }
@@ -67,4 +68,9 @@ a {
     margin-top: 20px;
     color: var(--primary);
     font-size: 14px;
+}
+
+#irRegistro,
+#irLogin {
+    font-weight: bold;
 }

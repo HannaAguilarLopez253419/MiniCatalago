@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>MiniCatálogo</h1>
+        <h1><span class="logo-icon">M</span>MiniCatálogo</h1>
         <div>
             <span>Panel Administrador</span>
             <button id="btnCerrarSesion">Cerrar sesión</button>
@@ -18,24 +18,29 @@
     </header>
 
     <main>
-        <section>
-            <h2>Panel de administrador</h2>
-            <p>Bienvenido. Desde aquí puedes administrar los productos de tu catálogo.</p>
+        <section class="bienvenida">
+            <span class="etiqueta">PANEL DE ADMINISTRADOR</span>
+            <h2>¡Hola! Administra tu catálogo</h2>
+            <p>Sube tus productos con su imagen, precio y link de WhatsApp para recibir pedidos.</p>
         </section>
 
         <section class="resumen">
-            <article>
-                <h3>Plan actual</h3>
-                <p>FREE</p>
-                <span>$0 / mes</span>
+            <article class="plan">
+                <h3> Plan actual</h3>
+                <p id="nombrePlan">FREE</p>
+                <span id="precioPlan">$0 / mes</span>
+                <button id="btnPremium"> Mejorar a Premium</button>
             </article>
-            <article>
-                <h3>Productos</h3>
+            <article class="productos">
+                <h3> Productos</h3>
                 <p id="contadorProductos">0 / 10</p>
+                <div class="barra">
+                    <div id="barraProductos"></div>
+                </div>
                 <span>productos registrados</span>
             </article>
-            <article>
-                <h3>Estado</h3>
+            <article class="estado">
+                <h3> Estado</h3>
                 <p>ACTIVO</p>
                 <span>Catálogo disponible</span>
             </article>
@@ -58,12 +63,22 @@
                 <form id="formProducto">
                     <div>
                         <label for="nombre">Nombre del producto</label>
-                        <input type="text" id="nombre" placeholder="Ej. Café Americano">
+                        <input type="text" id="nombre" placeholder="Ej. Café Americano" required>
                     </div>
 
                     <div>
                         <label for="precio">Precio</label>
-                        <input type="number" id="precio" placeholder="Ej. 45">
+                        <input type="number" id="precio" placeholder="Ej. 45" required>
+                    </div>
+
+                    <div>
+                        <label for="imagen">Imagen (link o ruta)</label>
+                        <input type="text" id="imagen" placeholder="Ej. https://misitio.com/cafe.jpg" required>
+                    </div>
+
+                    <div>
+                        <label for="whatsapp">Link de WhatsApp para pedidos</label>
+                        <input type="url" id="whatsapp" placeholder="https://wa.me/5219610000000" required>
                     </div>
 
                     <div>
@@ -74,11 +89,6 @@
                     <div>
                         <label for="descripcion">Descripción</label>
                         <textarea id="descripcion" placeholder="Describe el producto..."></textarea>
-                    </div>
-
-                    <div>
-                        <label for="imagen">Imagen</label>
-                        <input type="text" id="imagen" placeholder="Nombre o ruta de la imagen">
                     </div>
 
                     <div>
