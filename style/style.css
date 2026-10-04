@@ -1,12 +1,6 @@
 <<<<<<< HEAD
-/* ==========================================================
-   inicio.css  -  Estilos solo de la página de inicio
-   Los colores y fuentes vienen de general.css (variables).
-   Orden: navbar > hero > banner > secciones > categorías > negocios
-          > carrusel > planes > contacto > CTA > footer > celular
-   ========================================================== */
 
-/* ---------- NAVBAR ---------- */
+
 .navbar-wrapper {
     position: sticky;            /* se queda pegado arriba al hacer scroll */
     top: 0;
