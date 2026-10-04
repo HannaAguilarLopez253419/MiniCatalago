@@ -1,0 +1,95 @@
+/* ==========================================================
+   general.css  -  Base compartida por TODAS las páginas
+   Aquí están los colores y las fuentes del proyecto.
+   (Si lo cambias, avisa al equipo para evitar conflictos en Git)
+   ========================================================== */
+
+/* 1. VARIABLES
+   Cambia estos valores y TODO el sitio cambia de color.
+   Antes tu CSS usaba var(--primary), var(--dark)... pero nunca se definían,
+   por eso el logo y el botón "Administrar" no se veían. Ahora sí existen. */
+:root {
+  /* Color principal (verde azulado) */
+  --primary: #0F766E;
+  --primary-dark: #0B5A54;
+  --primary-light: #7CCBBB;
+  --primary-soft: #E6F4F1;     /* fondos suaves */
+  --line: #D3E8E3;             /* bordes finos */
+
+  /* Color de acento (coral): botones importantes */
+  --accent: #FF7A59;
+  --accent-dark: #F0613D;
+
+  /* Oscuros y neutros */
+  --dark: #10211F;
+  --dark-glow: #1E5A53;
+  --background: #F6F9F8;
+  --surface: #FFFFFF;
+  --text: #10211F;
+  --muted: #56666A;
+
+  /* Degradados del hero */
+  --hero-1: #F4FAF8;
+  --hero-2: #E1F2EE;
+  --hero-glow: #C5E9E1;
+  --circle-1: #A7DFD2;
+  --circle-2: #5DB9A8;
+
+  /* 2. FUENTES: una para títulos y otra para el texto.
+     Si Google Fonts no carga, se usa la de tu sistema. */
+  --font-title: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+/* --- Otras paletas para probar (cambia solo estas variables) ---
+   Morado + amarillo:  --primary:#5B3FD0; --primary-dark:#4630AA; --primary-light:#B4A0FF;
+                       --primary-soft:#EEEBFF; --line:#E3DEF7; --accent:#FFC93C; --dark:#17133A;
+                       --dark-glow:#352C86; --background:#F8F7FF;
+                       --hero-1:#F8F8FF; --hero-2:#EEECFF; --hero-glow:#DED5FF;
+                       --circle-1:#D3C5FF; --circle-2:#B4A0FF;
+   Azul + naranja:     --primary:#1D4ED8; --primary-dark:#1E3A8A; --primary-light:#93B4FF;
+                       --primary-soft:#E8EFFF; --line:#D6E1FA; --accent:#FF8A3D; --dark:#0F172A;
+                       --dark-glow:#1E3A8A; --background:#F6F8FF;
+                       --hero-1:#F5F8FF; --hero-2:#E3ECFF; --hero-glow:#CFDDFF;
+                       --circle-1:#B9CEFF; --circle-2:#7FA3F5;
+*/
+
+/* 3. REINICIO: quita márgenes raros que trae el navegador */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;   /* al hacer clic en #planes baja suavemente */
+  scroll-padding-top: 100px; /* deja espacio para que el navbar no tape el título */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  line-height: 1.15;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+
+/* 4. ACCESIBILIDAD: se ve dónde está el foco al navegar con teclado */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
